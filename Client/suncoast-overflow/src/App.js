@@ -10,9 +10,28 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p className="App-intro"></p>
+      <form>
+      <span>
+        <h2>Type in a title</h2><input type="text" placeholder="Title"></input>
+      </span>
+      <p>Type in your question</p>
+      <textarea
+        height="200"
+        width="600"
+        name="Question"/>
+      <p>Type in your answer</p>
+      <textarea
+        height="200"
+        width="600"
+        name="Question"/>  
+        <br></br>
+        <br></br>
+      <section>
+      <button>Up Vote</button>
+      <button>Down Vote</button>
+      </section>
+      </form>
       </div>
     );
   }

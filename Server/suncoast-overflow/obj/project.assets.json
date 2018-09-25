@@ -11500,23 +11500,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dan\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/manuelsolis/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Dan\\sdg\\unit-3\\suncoast-overflow\\Server\\suncoast-overflow\\suncoast-overflow.csproj",
+      "projectUniqueName": "/Users/manuelsolis/suncoast/suncoast-overflow/Server/suncoast-overflow/suncoast-overflow.csproj",
       "projectName": "suncoast-overflow",
-      "projectPath": "c:\\Users\\Dan\\sdg\\unit-3\\suncoast-overflow\\Server\\suncoast-overflow\\suncoast-overflow.csproj",
-      "packagesPath": "C:\\Users\\Dan\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Dan\\sdg\\unit-3\\suncoast-overflow\\Server\\suncoast-overflow\\obj\\",
+      "projectPath": "/Users/manuelsolis/suncoast/suncoast-overflow/Server/suncoast-overflow/suncoast-overflow.csproj",
+      "packagesPath": "/Users/manuelsolis/.nuget/packages/",
+      "outputPath": "/Users/manuelsolis/suncoast/suncoast-overflow/Server/suncoast-overflow/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/manuelsolis/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
