@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Server/suncoast-overflow/suncoast-overflow.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
