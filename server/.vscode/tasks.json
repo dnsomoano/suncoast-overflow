@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/suncoast-overflow.csproj"
+                "${workspaceFolder}/suncoast_overflow.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
