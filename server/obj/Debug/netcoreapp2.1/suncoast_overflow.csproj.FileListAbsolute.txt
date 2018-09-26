@@ -1,0 +1,14 @@
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\bin\Debug\netcoreapp2.1\suncoast_overflow.deps.json
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\bin\Debug\netcoreapp2.1\suncoast_overflow.runtimeconfig.json
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\bin\Debug\netcoreapp2.1\suncoast_overflow.runtimeconfig.dev.json
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\bin\Debug\netcoreapp2.1\suncoast_overflow.dll
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\bin\Debug\netcoreapp2.1\suncoast_overflow.pdb
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.csprojAssemblyReference.cache
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.csproj.CoreCompileInputs.cache
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.RazorAssemblyInfo.cache
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.RazorAssemblyInfo.cs
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.AssemblyInfoInputs.cache
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.AssemblyInfo.cs
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.RazorTargetAssemblyInfo.cache
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.dll
+C:\Users\Dan\sdg\unit-3\suncoast-overflow\server\obj\Debug\netcoreapp2.1\suncoast_overflow.pdb
