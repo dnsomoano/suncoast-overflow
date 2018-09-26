@@ -22,7 +22,7 @@ The core functionality is:
 
 - [ ] as a user I should be able to view and search questions asked
 - [ ] As a user I should be able to view a question and its answers
-- [ ] As a user I should be able to post a question, this can anonymous, and should be be Explorer Mode
+- [X] As a user I should be able to post a question, this can anonymous, and should be be Explorer Mode
 - [ ] As a user I should be able to answer a question
 - [ ] As a user I should be able to up/down vote a answer
 - [ ] As a user I should be able to up/down vote a question
