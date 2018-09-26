@@ -38,5 +38,11 @@ namespace suncoast_overflow.Controllers
             return question;
         }
 
+        // As a user I should be able to up/down vote a question
+        // PATCH api/questions
+        // [HttpPatch("{title}")]
+        // public ActionResult<Questions> Patch(string title) {
+        //     var UpdateToAnimal = this.db.Questions.FirstOrDefault(f => f.TitleOfQuestion.Contains(title));
+        // }
     }
 }

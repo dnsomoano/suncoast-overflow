@@ -20,7 +20,7 @@ In groups of 2, create an anonymous question and answer site, that allows users 
 
 The core functionality is:
 
-- [ ] as a user I should be able to view and search questions asked
+- [X] as a user I should be able to view and search questions asked
 - [ ] As a user I should be able to view a question and its answers
 - [X] As a user I should be able to post a question, this can anonymous, and should be be Explorer Mode
 - [ ] As a user I should be able to answer a question
