@@ -24,14 +24,17 @@ namespace suncoast_overflow.Controllers
             public Object result { get; set; }
         }
 
-        // GET api/search
+        // GET api/search?title={title}
         [HttpGet]
         public ActionResult<ResponseObject> Get([FromQuery] string title)
         {
             var _rv = new ResponseObject
             {
                 WasSuccessful = true,
-                result = this.db.Questions.FirstOrDefault(f => f.TitleOfQuestion == title),
+                result = this.db
+                .Questions
+                .Where(f => f.TitleOfQuestion.Contains(title) || f.BodyOfQuestion.Contains(title))
+                .OrderBy(o => o.TitleOfQuestion),
             };
             if (title != null)
             {

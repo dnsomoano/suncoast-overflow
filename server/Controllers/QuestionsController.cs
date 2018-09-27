@@ -17,6 +17,12 @@ namespace suncoast_overflow.Controllers
         {
             this.db = new SuncoastOverflowContext();
         }
+
+        public class QuestionModel
+        {
+            public string title { get; set; }
+            public string body { get; set; }
+        }
         // GET api/questions
         [HttpGet]
         public ActionResult<IEnumerable<Questions>> Get()
@@ -26,12 +32,12 @@ namespace suncoast_overflow.Controllers
 
         // POST api/questions
         [HttpPost]
-        public ActionResult<Questions> Post([FromBody] string title, string body)
+        public ActionResult<Questions> Post([FromBody] QuestionModel data)
         {
             var question = new Questions
             {
-                TitleOfQuestion = title,
-                BodyOfQuestion = body,
+                TitleOfQuestion = data.title.ToLower(),
+                BodyOfQuestion = data.body,
             };
             this.db.Questions.Add(question);
             this.db.SaveChanges();
@@ -39,10 +45,27 @@ namespace suncoast_overflow.Controllers
         }
 
         // As a user I should be able to up/down vote a question
-        // PATCH api/questions
-        // [HttpPatch("{title}")]
-        // public ActionResult<Questions> Patch(string title) {
-        //     var UpdateToAnimal = this.db.Questions.FirstOrDefault(f => f.TitleOfQuestion.Contains(title));
+        // PATCH api/questions/{id}/up-vote
+        [HttpPatch("{id}")]
+        public Questions Patch(int id)
+        {
+            // Declare a reference to for db Questions to find id
+            var question = this.db.Questions.FirstOrDefault(f => f.Id == id);
+            // Add 1 to upVote
+            question.UpVoteQuestion++;
+            this.db.SaveChanges();
+            return question;
+        }
+        // PATCH api/questions/{id}
+        // [HttpPatch("{id}/down-vote")]
+        // public Questions Patch(int id)
+        // {
+        //     // Declare a reference to for db Questions to find id
+        //     var question = this.db.Questions.FirstOrDefault(f => f.Id == id);
+        //     // Add 1 to upVote
+        //     question.UpVoteQuestion--;
+        //     this.db.SaveChanges();
+        //     return question;
         // }
     }
 }
