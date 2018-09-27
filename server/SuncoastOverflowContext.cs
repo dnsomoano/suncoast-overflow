@@ -30,5 +30,6 @@ namespace suncoast_overflow
         {}
 
         public DbSet<Questions> Questions { get; set; }
+        public DbSet<Answers> Answers { get; set; }
     }
 }

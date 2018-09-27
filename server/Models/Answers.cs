@@ -1,0 +1,16 @@
+using System;
+
+namespace suncoast_overflow.Models
+{
+    public class Answers
+    {
+        public int Id { get; set; }
+        public string BodyOfAnswer { get; set; }
+        public int UpVoteAnswer { get; set; }
+        public int DownVoteAnswer { get; set; }
+        public DateTime DateOfAnswer { get; set; } = DateTime.Now;
+        public int QuestionsId { get; set; }
+        public Questions Questions { get; set; }
+
+    }
+}
