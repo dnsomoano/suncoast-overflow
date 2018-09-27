@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace suncoast_overflow.Models
 {
@@ -15,6 +16,8 @@ namespace suncoast_overflow.Models
 
         public string user { get; set; }
 
-        public DateTime DateOfQuestion { get; set; } = DateTime.Now;
+        public DateTime Asked { get; set; } = DateTime.Now;
+
+        public virtual List<Answers> Answers {get;set;}
     }
 }

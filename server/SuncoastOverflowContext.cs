@@ -27,8 +27,9 @@ namespace suncoast_overflow
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {}
+        { }
 
         public DbSet<Questions> Questions { get; set; }
+        public DbSet<Answers> Answers { get; set; }
     }
 }

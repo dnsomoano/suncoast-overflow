@@ -10,8 +10,8 @@ using suncoast_overflow;
 namespace suncoast_overflow.Migrations
 {
     [DbContext(typeof(SuncoastOverflowContext))]
-    [Migration("20180926011205_AddedSuncoastOverflowTable")]
-    partial class AddedSuncoastOverflowTable
+    [Migration("20180927183721_AddedAnswersController")]
+    partial class AddedAnswersController
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,14 +21,36 @@ namespace suncoast_overflow.Migrations
                 .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            modelBuilder.Entity("suncoast_overflow.Models.Answers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Answered");
+
+                    b.Property<string>("BodyOfAnswer");
+
+                    b.Property<int>("DownVoteAnswer");
+
+                    b.Property<int>("QuestionsId");
+
+                    b.Property<int>("UpVoteAnswer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionsId");
+
+                    b.ToTable("Answers");
+                });
+
             modelBuilder.Entity("suncoast_overflow.Models.Questions", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("BodyOfQuestion");
+                    b.Property<DateTime>("Asked");
 
-                    b.Property<DateTime>("DateOfQuestion");
+                    b.Property<string>("BodyOfQuestion");
 
                     b.Property<int>("DownVoteQuestion");
 
@@ -41,6 +63,14 @@ namespace suncoast_overflow.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("suncoast_overflow.Models.Answers", b =>
+                {
+                    b.HasOne("suncoast_overflow.Models.Questions", "Questions")
+                        .WithMany()
+                        .HasForeignKey("QuestionsId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

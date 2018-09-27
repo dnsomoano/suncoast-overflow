@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using suncoast_overflow;
@@ -9,9 +10,10 @@ using suncoast_overflow;
 namespace suncoast_overflow.Migrations
 {
     [DbContext(typeof(SuncoastOverflowContext))]
-    partial class SuncoastOverflowContextModelSnapshot : ModelSnapshot
+    [Migration("20180927175432_AddedAnswersTable")]
+    partial class AddedAnswersTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,9 +26,9 @@ namespace suncoast_overflow.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Answered");
-
                     b.Property<string>("BodyOfAnswer");
+
+                    b.Property<DateTime>("DateOfAnswer");
 
                     b.Property<int>("DownVoteAnswer");
 
@@ -46,9 +48,9 @@ namespace suncoast_overflow.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Asked");
-
                     b.Property<string>("BodyOfQuestion");
+
+                    b.Property<DateTime>("DateOfQuestion");
 
                     b.Property<int>("DownVoteQuestion");
 

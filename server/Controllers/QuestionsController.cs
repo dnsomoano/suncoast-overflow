@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using suncoast_overflow.Models;
 
 namespace suncoast_overflow.Controllers
@@ -26,16 +27,16 @@ namespace suncoast_overflow.Controllers
 
         // GET api/questions
         [HttpGet]
-        public ActionResult<IEnumerable<Questions>> Get()
+        public IEnumerable<Questions> Get()
         {
-            return this.db.Questions;
+            return this.db.Questions.Include(i => i.Answers);
         }
 
         // GET api/questions/{id}
         [HttpGet("{id}")]
         public ActionResult<Questions> Get(int id)
         {
-            return this.db.Questions.FirstOrDefault(f => f.Id == id);
+            return this.db.Questions.Include(i => i.Answers).FirstOrDefault(f => f.Id == id);
         }
 
         // POST api/questions
@@ -54,8 +55,8 @@ namespace suncoast_overflow.Controllers
 
         // As a user I should be able to up/down vote a question
         // PATCH api/questions/{id}/up-vote
-        [HttpPatch("{id}/up-vote")]
-        public Questions Patch(int id)
+        [HttpPatch("up/{id}")]
+        public Questions upVote(int id)
         {
             // Declare a reference to for db Questions to find id
             var question = this.db.Questions.FirstOrDefault(f => f.Id == id);
@@ -65,16 +66,16 @@ namespace suncoast_overflow.Controllers
             return question;
         }
         // PATCH api/questions/{id}
-        // [HttpPatch("{id}/down-vote")]
-        // public Questions Patch(int id)
-        // {
-        //     // Declare a reference to for db Questions to find id
-        //     var question = this.db.Questions.FirstOrDefault(f => f.Id == id);
-        //     // Add 1 to upVote
-        //     question.UpVoteQuestion--;
-        //     this.db.SaveChanges();
-        //     return question;
-        // }
+        [HttpPatch("down/{id}")]
+        public Questions DownVote(int id)
+        {
+            // Declare a reference to for db Questions to find id
+            var question = this.db.Questions.FirstOrDefault(f => f.Id == id);
+            // Add 1 to upVote
+            question.DownVoteQuestion--;
+            this.db.SaveChanges();
+            return question;
+        }
         // DELETE api/questions/{id}
         [HttpDelete("{id}")]
         public Questions Delete(int id)
