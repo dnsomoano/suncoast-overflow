@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace suncoast_overflow.Migrations
 {
-    public partial class AddedSuncoastOverflowTable : Migration
+    public partial class AddedQuestionsTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

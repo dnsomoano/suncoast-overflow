@@ -10,8 +10,8 @@ using suncoast_overflow;
 namespace suncoast_overflow.Migrations
 {
     [DbContext(typeof(SuncoastOverflowContext))]
-    [Migration("20180926011205_AddedSuncoastOverflowTable")]
-    partial class AddedSuncoastOverflowTable
+    [Migration("20180927174506_AddedQuestionsTable")]
+    partial class AddedQuestionsTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
