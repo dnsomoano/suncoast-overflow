@@ -8,9 +8,9 @@ namespace suncoast_overflow.Models
         public string BodyOfAnswer { get; set; }
         public int UpVoteAnswer { get; set; }
         public int DownVoteAnswer { get; set; }
-        public DateTime DateOfAnswer { get; set; } = DateTime.Now;
+        public DateTime Answered { get; set; } = DateTime.Now;
         public int QuestionsId { get; set; }
-        public Questions Questions { get; set; }
+        public virtual Questions Questions { get; set; }
 
     }
 }
