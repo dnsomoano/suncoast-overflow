@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import "./App.css";
-import {BrowserRouter as Router} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import InterestingQuestions from "./Components/InterestingQuestions";
+import TopQuestions from "./Components/TopQuestions";
+import HotQuestions from "./Components/HotQuestions";
+
+
 
 class App extends Component {
   render() {
     return (
+      <Router>
       <div>
+      <section className="App">
         <section className="App-header">
           <img
             src="./images/stack-overflow.png"
@@ -14,7 +21,13 @@ class App extends Component {
           <input type="text" placeholder="Search"></input>
           <button>Submit</button>
         </section>
-        <section className="App">
+        </section>
+          <Switch>
+            <Route path="/InterestingQuestions" exact Component={InterestingQuestions} />
+            <Route path="/TopQuestions" exact Component={TopQuestions}/>
+            <Route path="/HotQuestions" exact Component={HotQuestions}/>
+          </Switch>
+      <section className="App">
           <h2>Type in a title</h2>
           <input type="text" placeholder="Title" />
           <p>Type in your question</p>
@@ -29,6 +42,7 @@ class App extends Component {
         </section>
         </section>
       </div>
+      </Router>
     );
   }
 }
