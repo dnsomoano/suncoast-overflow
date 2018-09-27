@@ -23,11 +23,19 @@ namespace suncoast_overflow.Controllers
             public string title { get; set; }
             public string body { get; set; }
         }
+
         // GET api/questions
         [HttpGet]
         public ActionResult<IEnumerable<Questions>> Get()
         {
             return this.db.Questions;
+        }
+
+        // GET api/questions/{id}
+        [HttpGet("{id}")]
+        public ActionResult<Questions> Get(int id)
+        {
+            return this.db.Questions.FirstOrDefault(f => f.Id == id);
         }
 
         // POST api/questions
@@ -46,7 +54,7 @@ namespace suncoast_overflow.Controllers
 
         // As a user I should be able to up/down vote a question
         // PATCH api/questions/{id}/up-vote
-        [HttpPatch("{id}")]
+        [HttpPatch("{id}/up-vote")]
         public Questions Patch(int id)
         {
             // Declare a reference to for db Questions to find id
@@ -67,5 +75,14 @@ namespace suncoast_overflow.Controllers
         //     this.db.SaveChanges();
         //     return question;
         // }
+        // DELETE api/questions/{id}
+        [HttpDelete("{id}")]
+        public Questions Delete(int id)
+        {
+            var question = this.db.Questions.FirstOrDefault(f => f.Id == id);
+            this.db.Questions.Remove(question);
+            this.db.SaveChanges();
+            return question;
+        }
     }
 }
