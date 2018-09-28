@@ -23,9 +23,9 @@ class App extends Component {
             </section>
           </section>
           <Switch>
-            <Route path="/InterestingQuestions" exact Component={InterestingQuestions} />
-            <Route path="/TopQuestions" exact Component={TopQuestions} />
-            <Route path="/HotQuestions" exact Component={HotQuestions} />
+            <Route path="/" exact Component={InterestingQuestions} />
+            <Route path="/:TopQuestions" exact Component={TopQuestions} />
+            <Route path="/:HotQuestions" exact Component={HotQuestions} />
           </Switch>
           <section className="App">
             <h2>Type in a title</h2>
