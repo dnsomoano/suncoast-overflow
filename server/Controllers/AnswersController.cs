@@ -29,7 +29,7 @@ namespace suncoast_overflow.Controllers
         {
             return this.db.Answers;
         }
-        
+
         // TODO fix -- returns 500
         // GET api/answers/{id}
         [HttpGet("{id}")]
@@ -52,7 +52,7 @@ namespace suncoast_overflow.Controllers
             return answer;
         }
 
-        // TODO Fix returns 500
+        // MUST use answers.Id NOT questionsId!
         // PATCH api/answers/up/{id}/
         [HttpPatch("up/{id}")]
         public Answers UpVote(int id)
@@ -64,7 +64,8 @@ namespace suncoast_overflow.Controllers
             this.db.SaveChanges();
             return answer;
         }
-        // TODO Fix returns 500
+
+        // MUST use answers.Id NOT questionsId!
         // PATCH api/answers/down/{id}
         [HttpPatch("down/{id}")]
         public Answers DownVote(int id)
@@ -76,7 +77,7 @@ namespace suncoast_overflow.Controllers
             this.db.SaveChanges();
             return answer;
         }
-        
+
         // DELETE api/answers/{id}
         [HttpDelete("{id}")]
         public Answers Delete(int id)
