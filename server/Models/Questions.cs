@@ -16,7 +16,7 @@ namespace suncoast_overflow.Models
 
         public string user { get; set; }
 
-        public DateTime Asked { get; set; } = DateTime.Now;
+        public DateTime DateOfQuestion { get; set; } = DateTime.Now;
 
         public virtual List<Answers> Answers {get;set;}
     }

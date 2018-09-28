@@ -24,9 +24,9 @@ namespace suncoast_overflow.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Answered");
-
                     b.Property<string>("BodyOfAnswer");
+
+                    b.Property<DateTime>("DateOfAnswer");
 
                     b.Property<int>("DownVoteAnswer");
 
@@ -46,9 +46,9 @@ namespace suncoast_overflow.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Asked");
-
                     b.Property<string>("BodyOfQuestion");
+
+                    b.Property<DateTime>("DateOfQuestion");
 
                     b.Property<int>("DownVoteQuestion");
 
