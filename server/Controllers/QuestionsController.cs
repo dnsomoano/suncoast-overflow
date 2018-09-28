@@ -65,6 +65,7 @@ namespace suncoast_overflow.Controllers
             this.db.SaveChanges();
             return question;
         }
+
         // PATCH api/questions/{id}
         [HttpPatch("down/{id}")]
         public Questions DownVote(int id)
@@ -76,6 +77,7 @@ namespace suncoast_overflow.Controllers
             this.db.SaveChanges();
             return question;
         }
+        
         // DELETE api/questions/{id}
         [HttpDelete("{id}")]
         public Questions Delete(int id)
