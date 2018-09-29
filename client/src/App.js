@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import InterestingQuestions from "./Components/InterestingQuestions";
 import TopQuestions from "./Components/TopQuestions";
 import HotQuestions from "./Components/HotQuestions";
-
-
 
 class App extends Component {
   render() {
@@ -17,32 +15,40 @@ class App extends Component {
               <img
                 src="./images/stack-overflow.png"
                 className="App-logo"
-                alt="logo" />
-              <input type="text" placeholder="Search"></input>
+                alt="logo"
+              />
+              <input type="text" placeholder="Search" />
               <button>Submit</button>
             </section>
           </section>
-          <nav className="Nav-bar">
-          <ul>
-            <li>
-              <Link to="/">
-              Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/InterestingQuestions">
-              Interesting Questions
-              </Link>
-            </li><li>
-              <Link to="/HotQuestions">
-              Hot Questions
-              </Link>
-            </li>
-          </ul>
-          </nav>
+          <section className="Nav-bar">
+          <h2>Top Questions</h2>
+          <button>Ask Question</button>
+            <ul class="Questions-nav-bar-ul">
+              <li>
+                <Link to="/">
+                  <button type="button">Home</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/InterestingQuestions">
+                <button type="button">Interesting</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/HotQuestions">
+                <button type="button">Hot</button>
+                </Link>
+              </li>
+            </ul>
+          </section>
           <Switch>
             <Route path="/" exact component={TopQuestions} />
-            <Route path="/InterestingQuestions" exact component={InterestingQuestions} />
+            <Route
+              path="/InterestingQuestions"
+              exact
+              component={InterestingQuestions}
+            />
             <Route path="/HotQuestions" exact component={HotQuestions} />
           </Switch>
           <section className="App">

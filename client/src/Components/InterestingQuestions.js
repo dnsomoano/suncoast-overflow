@@ -1,13 +1,44 @@
 import React, { Component } from 'react';
 
 class InterestingQuestions extends Component {
-    render() {
-        return (
-            <div>
-                These are Interesting Questions Devs are asking
-            </div>
-        );
+    constructor(props) {
+      super(props);
+      this.state = {
+        data: [{}],
+        upVote: 0,
+        downVote: 0,
+        title: "",
+        body: "",
+        date: new Date(),
+        user: ""
+      };
     }
-}
-
-export default InterestingQuestions;
+    componentDidMount() {
+      fetch("https://localhost:5001/api/questions", {
+        //   mode: "no-cors"
+      })
+        .then(resp => resp.json())
+        .then(questions => {
+          console.log(questions);
+          this.setState({
+            data: questions
+          });
+        });
+    }
+  
+    render() {
+      return (
+        <section>
+          <div></div>
+          {/* <section>
+            {this.state.data.map((questions, i) => {
+              return <section key={i}>{questions}</section>;
+            })}
+          </section> */}
+        </section>
+      );
+    }
+  }
+  
+  export default InterestingQuestions;
+  

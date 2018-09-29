@@ -29,7 +29,7 @@ class TopQuestions extends Component {
   render() {
     return (
       <section>
-        <div>These are the Top Questions Developers are asking underflow</div>
+        <div></div>
         {/* <section>
           {this.state.data.map((questions, i) => {
             return <section key={i}>{questions}</section>;
