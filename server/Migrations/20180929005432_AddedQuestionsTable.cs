@@ -14,11 +14,11 @@ namespace suncoast_overflow.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    User = table.Column<string>(nullable: true),
                     TitleOfQuestion = table.Column<string>(nullable: true),
                     BodyOfQuestion = table.Column<string>(nullable: true),
                     UpVoteQuestion = table.Column<int>(nullable: false),
                     DownVoteQuestion = table.Column<int>(nullable: false),
-                    user = table.Column<string>(nullable: true),
                     DateOfQuestion = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

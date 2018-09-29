@@ -5,6 +5,7 @@ namespace suncoast_overflow.Models
     public class Answers
     {
         public int Id { get; set; }
+        public string User { get; set; }
         public string BodyOfAnswer { get; set; }
         public int UpVoteAnswer { get; set; }
         public int DownVoteAnswer { get; set; }

@@ -14,6 +14,7 @@ namespace suncoast_overflow.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    User = table.Column<string>(nullable: true),
                     BodyOfAnswer = table.Column<string>(nullable: true),
                     UpVoteAnswer = table.Column<int>(nullable: false),
                     DownVoteAnswer = table.Column<int>(nullable: false),

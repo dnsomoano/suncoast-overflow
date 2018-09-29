@@ -22,6 +22,7 @@ namespace suncoast_overflow.Controllers
         public class QuestionModel
         {
             public string title { get; set; }
+            public string user { get; set; }
             public string body { get; set; }
         }
 
@@ -46,7 +47,9 @@ namespace suncoast_overflow.Controllers
             var question = new Questions
             {
                 TitleOfQuestion = data.title.ToLower(),
-                BodyOfQuestion = data.body,
+                User = data.user.ToLower(),
+                BodyOfQuestion = data.body.ToLower(),
+
             };
             this.db.Questions.Add(question);
             this.db.SaveChanges();
@@ -77,7 +80,7 @@ namespace suncoast_overflow.Controllers
             this.db.SaveChanges();
             return question;
         }
-        
+
         // DELETE api/questions/{id}
         [HttpDelete("{id}")]
         public Questions Delete(int id)

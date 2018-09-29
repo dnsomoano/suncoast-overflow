@@ -20,6 +20,7 @@ namespace suncoast_overflow.Controllers
 
         public class AnswerModel
         {
+            public string user { get; set; }
             public string body { get; set; }
         }
 
@@ -30,7 +31,7 @@ namespace suncoast_overflow.Controllers
             return this.db.Answers;
         }
 
-        // TODO fix -- returns 500
+        // MUST match answers.id
         // GET api/answers/{id}
         [HttpGet("{id}")]
         public ActionResult<Answers> Get(int id)
@@ -44,6 +45,7 @@ namespace suncoast_overflow.Controllers
         {
             var answer = new Answers
             {
+                User = data.user.ToLower(),
                 BodyOfAnswer = data.body.ToLower(),
                 QuestionsId = id
             };

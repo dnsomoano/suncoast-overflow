@@ -10,7 +10,7 @@ using suncoast_overflow;
 namespace suncoast_overflow.Migrations
 {
     [DbContext(typeof(SuncoastOverflowContext))]
-    [Migration("20180927175432_AddedAnswersTable")]
+    [Migration("20180929005835_AddedAnswersTable")]
     partial class AddedAnswersTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,8 @@ namespace suncoast_overflow.Migrations
 
                     b.Property<int>("UpVoteAnswer");
 
+                    b.Property<string>("User");
+
                     b.HasKey("Id");
 
                     b.HasIndex("QuestionsId");
@@ -58,7 +60,7 @@ namespace suncoast_overflow.Migrations
 
                     b.Property<int>("UpVoteQuestion");
 
-                    b.Property<string>("user");
+                    b.Property<string>("User");
 
                     b.HasKey("Id");
 
@@ -68,7 +70,7 @@ namespace suncoast_overflow.Migrations
             modelBuilder.Entity("suncoast_overflow.Models.Answers", b =>
                 {
                     b.HasOne("suncoast_overflow.Models.Questions", "Questions")
-                        .WithMany()
+                        .WithMany("Answers")
                         .HasForeignKey("QuestionsId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

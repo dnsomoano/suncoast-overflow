@@ -10,7 +10,7 @@ using suncoast_overflow;
 namespace suncoast_overflow.Migrations
 {
     [DbContext(typeof(SuncoastOverflowContext))]
-    [Migration("20180927174506_AddedQuestionsTable")]
+    [Migration("20180929005432_AddedQuestionsTable")]
     partial class AddedQuestionsTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,7 @@ namespace suncoast_overflow.Migrations
 
                     b.Property<int>("UpVoteQuestion");
 
-                    b.Property<string>("user");
+                    b.Property<string>("User");
 
                     b.HasKey("Id");
 
