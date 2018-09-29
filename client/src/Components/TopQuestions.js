@@ -1,16 +1,17 @@
 import React, { Component } from "react";
+import "../styling/TopQuestions.css";
 
 class TopQuestions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
       user: "",
       title: "",
       body: "",
       upVote: 0,
       downVote: 0,
-      date: new Date()
+      date: new Date(),
+      data: [{}]
     };
   }
   componentDidMount() {
@@ -19,7 +20,9 @@ class TopQuestions extends Component {
 
   // GET latest questions from QuestionsTable
   getQuestions = () => {
-    fetch("https://localhost:5001/api/questions")
+    fetch("https://localhost:5001/api/questions", {
+      // mode: "no-cors"
+    })
       .then(resp => resp.json())
       .then(questions => {
         console.log(questions);
@@ -57,11 +60,34 @@ class TopQuestions extends Component {
   render() {
     return (
       <section>
-        <div></div>
-        {/* <section>
-          {this.state.data.map((questions, i) => {
-            return <section key={i}>{questions}</section>;
+        <section>
+          {this.state.data.map((question, i) => {
+            return (
+              <section key={i} className="top-questions">
+                <button>UpVote</button>
+                <button>DownVote</button>
+                <header>{question.titleOfQuestion}</header>
+              </section>
+            );
           })}
+        </section>
+        {/* Manny, this section is temporary until i get the post request mechanics working */}
+        <section className="post-question">
+          <h2>Type in a title</h2>
+          <input
+            type="text"
+            placeholder="Title"
+            name="title"
+            onChange={this.handleChange}
+          />
+          <p>Type in your question</p>
+          <textarea name="body" onChange={this.handleChange} />
+          {/* <textarea height="200" width="600" name="Question" />
+          <br />
+          <br />
+            <button>Up Vote</button>
+            <button>Down Vote</button> */}
+          <button onClick={this.handleAddQuestion}>Submit Question</button>
         </section>
       </section>
     );

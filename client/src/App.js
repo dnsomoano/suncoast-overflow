@@ -22,10 +22,10 @@ class App extends Component {
             </section>
           </section>
           <section className="Nav-bar">
-          <h2>Top Questions</h2>
-          <button>Ask Question</button>
-          <section/>
-            <ul class="Questions-nav-bar-ul">
+            <h2>Top Questions</h2>
+            <button>Ask Question</button>
+            <section />
+            <ul className="Questions-nav-bar-ul">
               <li>
                 <Link to="/">
                   <button type="button">Home</button>
@@ -33,12 +33,12 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/InterestingQuestions">
-                <button type="button">Interesting</button>
+                  <button type="button">Interesting</button>
                 </Link>
               </li>
               <li>
                 <Link to="/HotQuestions">
-                <button type="button">Hot</button>
+                  <button type="button">Hot</button>
                 </Link>
               </li>
             </ul>
