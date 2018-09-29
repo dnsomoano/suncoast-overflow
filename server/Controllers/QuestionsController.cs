@@ -76,7 +76,7 @@ namespace suncoast_overflow.Controllers
             // Declare a reference to for db Questions to find id
             var question = this.db.Questions.FirstOrDefault(f => f.Id == id);
             // Add 1 to upVote
-            question.DownVoteQuestion--;
+            question.DownVoteQuestion++;
             this.db.SaveChanges();
             return question;
         }
