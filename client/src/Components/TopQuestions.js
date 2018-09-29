@@ -64,9 +64,15 @@ class TopQuestions extends Component {
           {this.state.data.map((question, i) => {
             return (
               <section key={i} className="top-questions">
-                <button>UpVote</button>
-                <button>DownVote</button>
+                <section className="vote-buttons">
+                  <button>{question.upVoteQuestion}</button>
+                  <button>{question.downVoteQuestion}</button>
+                </section>
                 <header>{question.titleOfQuestion}</header>
+                <section className="date-and-user">
+                  <header>Asked {question.dateOfQuestion}</header>
+                  <header>by {question.user}</header>
+                </section>
               </section>
             );
           })}
