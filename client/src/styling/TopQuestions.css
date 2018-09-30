@@ -19,12 +19,3 @@
 .date-and-user {
   font-size: 50%;
 }
-
-/* Styles for POST */
-.post-question {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 15em;
-}

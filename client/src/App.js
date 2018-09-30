@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import InterestingQuestions from "./Components/InterestingQuestions";
 import TopQuestions from "./Components/TopQuestions";
+import AskQuestion from "./Components/AskQuestion";
+import InterestingQuestions from "./Components/InterestingQuestions";
 import HotQuestions from "./Components/HotQuestions";
 
 class App extends Component {
@@ -23,7 +24,9 @@ class App extends Component {
           </section>
           <section className="Nav-bar">
             <h2>Top Questions</h2>
-            <button>Ask Question</button>
+            <Link to="/AskQuestion">
+              <button>Ask Question</button>
+            </Link>
             <section />
             <ul className="Questions-nav-bar-ul">
               <li>
@@ -51,6 +54,7 @@ class App extends Component {
               component={InterestingQuestions}
             />
             <Route path="/HotQuestions" exact component={HotQuestions} />
+            <Route path="/AskQuestion" exact component={AskQuestion} />
           </Switch>
           <section className="App" />
         </div>

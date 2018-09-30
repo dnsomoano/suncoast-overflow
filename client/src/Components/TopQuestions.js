@@ -5,13 +5,10 @@ class TopQuestions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "",
-      title: "",
-      body: "",
+      data: [],
+      id: 0,
       upVote: 0,
-      downVote: 0,
-      date: new Date(),
-      data: [{}]
+      downVote: 0
     };
   }
   componentDidMount() {
@@ -28,20 +25,17 @@ class TopQuestions extends Component {
       });
   };
 
-  // POST question to QuestionsTable
-  handleAddQuestion = e => {
+  // TODO add string interpolation for id to perform patch request
+  // PATCH question to QuestionsTable
+  handleSubmitQuestion = e => {
     e.preventDefault();
     fetch("https://localhost:5001/api/questions", {
       // mode: "no-cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        User: this.state.user,
-        titleOfQuestion: this.state.title,
-        bodyOfQuestion: this.state.body,
-        DateOfQuestion: this.state.date
+        upVoteQuestion: this.state.upVote,
+        DownVoteQuestion: this.state.downVote
       })
     })
       .then(resp => resp.json())
@@ -64,8 +58,9 @@ class TopQuestions extends Component {
             return (
               <section key={i} className="top-questions">
                 <section className="vote-buttons">
-                  <button>{question.upVoteQuestion}</button>
-                  <button>{question.downVoteQuestion}</button>
+                  {/* TODO add event handlers to up vote/down vote buttons */}
+                  <button name="upVote">{question.upVoteQuestion}</button>
+                  <button name="downVote">{question.downVoteQuestion}</button>
                 </section>
                 <header>{question.titleOfQuestion}</header>
                 <section className="date-and-user">
@@ -75,24 +70,6 @@ class TopQuestions extends Component {
               </section>
             );
           })}
-        </section>
-        {/* Manny, this section is temporary until i get the post request mechanics working */}
-        <section className="post-question">
-          <h2>Type in a title</h2>
-          <input
-            type="text"
-            placeholder="Title"
-            name="title"
-            onChange={this.handleChange}
-          />
-          <p>Type in your question</p>
-          <textarea name="body" onChange={this.handleChange} />
-          {/* <textarea height="200" width="600" name="Question" />
-          <br />
-          <br />
-            <button>Up Vote</button>
-            <button>Down Vote</button> */}
-          <button onClick={this.handleAddQuestion}>Submit Question</button>
         </section>
       </section>
     );
