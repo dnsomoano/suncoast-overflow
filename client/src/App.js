@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import TopQuestions from "./Components/TopQuestions";
+import QuestionDetail from "./Components/QuestionDetail";
 import AskQuestion from "./Components/AskQuestion";
 import InterestingQuestions from "./Components/InterestingQuestions";
 import HotQuestions from "./Components/HotQuestions";
@@ -51,13 +52,18 @@ class App extends Component {
           </section>
           <Switch>
             <Route path="/" exact component={TopQuestions} />
+            <Route path="/ask" exact component={AskQuestion} />
+            <Route
+              path="/questions/:id/:title"
+              exact
+              component={QuestionDetail}
+            />
             <Route
               path="/InterestingQuestions"
               exact
               component={InterestingQuestions}
             />
             <Route path="/HotQuestions" exact component={HotQuestions} />
-            <Route path="/ask" exact component={AskQuestion} />
           </Switch>
           <section className="App" />
         </div>

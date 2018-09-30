@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styling/TopQuestions.css";
+import { Link } from "react-router-dom";
 
 class TopQuestions extends Component {
   constructor(props) {
@@ -62,7 +63,11 @@ class TopQuestions extends Component {
                   <button name="upVote">{question.upVoteQuestion}</button>
                   <button name="downVote">{question.downVoteQuestion}</button>
                 </section>
-                <header>{question.titleOfQuestion}</header>
+                <Link
+                  to={`/questions/${question.id}/${question.titleOfQuestion}`}
+                >
+                  <header>{question.titleOfQuestion}</header>
+                </Link>
                 <section className="date-and-user">
                   <header>Asked {question.dateOfQuestion}</header>
                   <header>by {question.user}</header>
