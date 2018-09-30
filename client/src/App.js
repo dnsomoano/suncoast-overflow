@@ -23,28 +23,31 @@ class App extends Component {
             </section>
           </section>
           <section className="Nav-bar">
-            <h2>Top Questions</h2>
-            <Link to="/AskQuestion">
-              <button>Ask Question</button>
-            </Link>
-            <section />
-            <ul className="Questions-nav-bar-ul">
-              <li>
-                <Link to="/">
-                  <button type="button">Home</button>
-                </Link>
-              </li>
-              <li>
-                <Link to="/InterestingQuestions">
-                  <button type="button">Interesting</button>
-                </Link>
-              </li>
-              <li>
-                <Link to="/HotQuestions">
-                  <button type="button">Hot</button>
-                </Link>
-              </li>
-            </ul>
+            <section className="top-questions-header">
+              <h2>Top Questions</h2>
+              <Link to="/ask">
+                <button className="ask-button">Ask Question</button>
+              </Link>
+            </section>
+            <section>
+              <ul className="Questions-nav-bar-ul">
+                <li>
+                  <Link to="/">
+                    <button type="button">Home</button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/InterestingQuestions">
+                    <button type="button">Interesting</button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/HotQuestions">
+                    <button type="button">Hot</button>
+                  </Link>
+                </li>
+              </ul>
+            </section>
           </section>
           <Switch>
             <Route path="/" exact component={TopQuestions} />
@@ -54,7 +57,7 @@ class App extends Component {
               component={InterestingQuestions}
             />
             <Route path="/HotQuestions" exact component={HotQuestions} />
-            <Route path="/AskQuestion" exact component={AskQuestion} />
+            <Route path="/ask" exact component={AskQuestion} />
           </Switch>
           <section className="App" />
         </div>
