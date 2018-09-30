@@ -19,12 +19,12 @@ namespace suncoast_overflow.Controllers
             this.db = new SuncoastOverflowContext();
         }
 
-        public class QuestionModel
-        {
-            public string title { get; set; }
-            public string user { get; set; }
-            public string body { get; set; }
-        }
+        // public class QuestionModel
+        // {
+        //     public string title { get; set; }
+        //     public string user { get; set; }
+        //     public string body { get; set; }
+        // }
 
         // GET api/questions
         [HttpGet]
@@ -42,15 +42,15 @@ namespace suncoast_overflow.Controllers
 
         // POST api/questions
         [HttpPost]
-        public ActionResult<Questions> Post([FromBody] QuestionModel data)
+        public Questions Post([FromBody] Questions question)
         {
-            var question = new Questions
-            {
-                TitleOfQuestion = data.title.ToLower(),
-                User = data.user.ToLower(),
-                BodyOfQuestion = data.body.ToLower(),
+            // var question = new Questions
+            // {
+            //     TitleOfQuestion = data.title.ToLower(),
+            //     User = data.user.ToLower(),
+            //     BodyOfQuestion = data.body.ToLower(),
 
-            };
+            // };
             this.db.Questions.Add(question);
             this.db.SaveChanges();
             return question;
