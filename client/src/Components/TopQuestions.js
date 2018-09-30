@@ -20,9 +20,7 @@ class TopQuestions extends Component {
 
   // GET latest questions from QuestionsTable
   getQuestions = () => {
-    fetch("https://localhost:5001/api/questions", {
-      // mode: "no-cors"
-    })
+    fetch("https://localhost:5001/api/questions")
       .then(resp => resp.json())
       .then(questions => {
         console.log(questions);
@@ -30,19 +28,20 @@ class TopQuestions extends Component {
       });
   };
 
-  // POST questions to QuestionsTable
+  // POST question to QuestionsTable
   handleAddQuestion = e => {
+    e.preventDefault();
     fetch("https://localhost:5001/api/questions", {
+      // mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      mode: "no-cors",
       body: JSON.stringify({
-        user: this.state.user,
+        User: this.state.user,
         titleOfQuestion: this.state.title,
         bodyOfQuestion: this.state.body,
-        dateOfQuestion: this.state.date
+        DateOfQuestion: this.state.date
       })
     })
       .then(resp => resp.json())
@@ -53,7 +52,7 @@ class TopQuestions extends Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.title]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 

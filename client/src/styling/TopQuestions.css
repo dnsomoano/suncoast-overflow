@@ -9,6 +9,18 @@
   padding: 0.5em;
 }
 
+.vote-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 2em;
+}
+
+.date-and-user {
+  font-size: 50%;
+}
+
+/* Styles for POST */
 .post-question {
   display: flex;
   flex-direction: column;
