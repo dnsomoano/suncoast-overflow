@@ -20,18 +20,18 @@ In groups of 2, create an anonymous question and answer site, that allows users 
 
 The core functionality is:
 
-- [X] as a user I should be able to view and search questions asked
-- [ ] As a user I should be able to view a question and its answers
-- [X] As a user I should be able to post a question, this can anonymous, and should be be Explorer Mode
-- [ ] As a user I should be able to answer a question
-- [ ] As a user I should be able to up/down vote a answer
-- [ ] As a user I should be able to up/down vote a question
+- [ ] as a user I should be able to view and search questions asked
+- [x] As a user I should be able to view a question and its answers
+- [x] As a user I should be able to post a question, this can anonymous, and should be be Explorer Mode
+- [x] As a user I should be able to answer a question
+- [x] As a user I should be able to up/down vote a answer
+- [x] As a user I should be able to up/down vote a question
 
 ### Explorer Mode
 
-- [ ] Create a ERD for the core functionality above
-- [ ] Create API definitions for the all the endpoints needed. This should include urls, params, body, and return types.
-- [ ] Start building out the API
+- [x] Create a ERD for the core functionality above
+- [x] Create API definitions for the all the endpoints needed. This should include urls, params, body, and return types.
+- [x] Start building out the API
 
 ### Adventure Mode
 
