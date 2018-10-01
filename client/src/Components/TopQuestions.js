@@ -74,7 +74,6 @@ class TopQuestions extends Component {
             return (
               <section key={i} className="top-questions">
                 <section className="vote-buttons">
-                  {/* TODO add event handlers to up vote/down vote buttons */}
                   <button
                     name="upVote"
                     onClick={() => {

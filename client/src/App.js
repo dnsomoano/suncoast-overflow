@@ -6,7 +6,9 @@ import QuestionDetail from "./Components/QuestionDetail";
 import AskQuestion from "./Components/AskQuestion";
 import InterestingQuestions from "./Components/InterestingQuestions";
 import HotQuestions from "./Components/HotQuestions";
-// TODO add SearchQuestion component
+// TODO work  on this v
+import TopNav from "./Components/TopNav";
+import SearchQuestion from "./Components/SearchQuestion";
 
 class App extends Component {
   render() {
@@ -14,15 +16,7 @@ class App extends Component {
       <Router>
         <div>
           <section className="App">
-            <section className="App-header">
-              <img
-                src="./images/stack-overflow.png"
-                className="App-logo"
-                alt="logo"
-              />
-              <input type="text" placeholder="Search" />
-              <button>Submit</button>
-            </section>
+            <TopNav />
           </section>
           <section className="Nav-bar">
             <section className="top-questions-header">
@@ -52,6 +46,8 @@ class App extends Component {
             </section>
           </section>
           <Switch>
+            {/* TODO pass down title as props to search question comp */}
+            <Route path="/Search/:title" exact component={SearchQuestion} />
             <Route path="/" exact component={TopQuestions} />
             <Route path="/ask" exact component={AskQuestion} />
             <Route

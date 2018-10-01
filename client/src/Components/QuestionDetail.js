@@ -13,7 +13,8 @@ class QuestionDetail extends Component {
       downVote: 0,
       upVoteAns: 0,
       downVoteAns: 0,
-      answers: []
+      answers: [],
+      answerBody: ""
     };
   }
 
@@ -78,8 +79,8 @@ class QuestionDetail extends Component {
 
   // PATCH up vote to answer to AnswersTable
   handleUpVoteAnswer = id => {
-    const PATCH_UP_URL = `https://localhost:5001/api/answers/up/${id}`;
-    fetch(PATCH_UP_URL, {
+    const PATCH_UP_ANSWER_URL = `https://localhost:5001/api/answers/up/${id}`;
+    fetch(PATCH_UP_ANSWER_URL, {
       // mode: "no-cors",
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -95,8 +96,8 @@ class QuestionDetail extends Component {
 
   // PATCH down vote to answer to AnswersTable
   handleDownVoteAnswer = id => {
-    const PATCH_UP_URL = `https://localhost:5001/api/answers/down/${id}`;
-    fetch(PATCH_UP_URL, {
+    const PATCH_DOWN_ANSWER_URL = `https://localhost:5001/api/answers/down/${id}`;
+    fetch(PATCH_DOWN_ANSWER_URL, {
       // mode: "no-cors",
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -116,7 +117,26 @@ class QuestionDetail extends Component {
     });
   };
 
-  // TODO write function for "Post Your Answer" button
+  // POST an answer to AnswersTable
+  handleSubmitAnswer = e => {
+    const ANSWERS_BASE_URL = "https://localhost:5001/api/answers/";
+    e.preventDefault();
+    fetch(ANSWERS_BASE_URL + `${this.state.id}`, {
+      // mode: "no-cors",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        User: this.state.user,
+        bodyOfAnswer: this.state.answerBody
+      })
+    })
+      .then(resp => resp.json())
+      .then(_ => {
+        this.getQuestions();
+      });
+  };
 
   render() {
     return (
@@ -151,8 +171,8 @@ class QuestionDetail extends Component {
           </section>
           {this.state.answers.map((answer, i) => {
             return (
-              <section className="details-container">
-                <section key={i} className="detail-pane">
+              <section key={i} className="details-container">
+                <section className="detail-pane">
                   <section className="vote-count">
                     <button
                       className="vote-count"
@@ -186,8 +206,10 @@ class QuestionDetail extends Component {
           })}
           <section>
             <form>
-              <textarea name="body" onChange={this.handleChange} />
-              <button>Post Your Answer</button>
+              <textarea name="answerBody" onChange={this.handleChange} />
+              <button onClick={this.handleSubmitAnswer}>
+                Post Your Answer
+              </button>
             </form>
           </section>
         </section>
