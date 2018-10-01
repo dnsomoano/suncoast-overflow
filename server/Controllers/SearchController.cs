@@ -24,26 +24,26 @@ namespace suncoast_overflow.Controllers
             public Object result { get; set; }
         }
 
-        // GET api/search?title={title}
+        // GET api/search?q={title}
         [HttpGet]
-        public ActionResult<ResponseObject> Get([FromQuery] string title)
+        public ActionResult<ResponseObject> Get([FromQuery] string q)
         {
             var _rv = new ResponseObject
             {
                 WasSuccessful = true,
                 result = this.db
                 .Questions
-                .Where(f => f.TitleOfQuestion.Contains(title) || f.BodyOfQuestion.Contains(title))
+                .Where(f => f.TitleOfQuestion.Contains(q) || f.BodyOfQuestion.Contains(q))
                 .OrderBy(o => o.TitleOfQuestion),
             };
-            if (title != null)
+            if (q != null)
             {
                 return _rv;
             }
             else
             {
                 _rv.WasSuccessful = false;
-                _rv.result = "Animal not found";
+                _rv.result = "Question not found";
                 return _rv;
             }
         }

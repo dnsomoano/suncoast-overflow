@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import InterestingQuestions from "./Components/InterestingQuestions";
 import TopQuestions from "./Components/TopQuestions";
+import QuestionDetail from "./Components/QuestionDetail";
+import AskQuestion from "./Components/AskQuestion";
+import InterestingQuestions from "./Components/InterestingQuestions";
 import HotQuestions from "./Components/HotQuestions";
+// TODO work  on this v
+import TopNav from "./Components/TopNav";
+import SearchQuestion from "./Components/SearchQuestion";
 
 class App extends Component {
   render() {
@@ -11,15 +16,7 @@ class App extends Component {
       <Router>
         <div>
           <section className="App">
-            <section className="App-header">
-              <img
-                src="./images/stack-overflow.png"
-                className="App-logo"
-                alt="logo"
-              />
-              <input type="text" placeholder="Search" />
-              <button>Submit</button>
-            </section>
+            <TopNav />
           </section>
           <section className="Nav-bar">
           <h2>Top Questions</h2>

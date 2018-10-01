@@ -1,0 +1,21 @@
+.top-questions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid black;
+  color: black;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+.vote-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 2em;
+}
+
+.date-and-user {
+  font-size: 50%;
+}
