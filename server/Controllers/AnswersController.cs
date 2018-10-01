@@ -18,11 +18,11 @@ namespace suncoast_overflow.Controllers
             this.db = new SuncoastOverflowContext();
         }
 
-        public class AnswerModel
-        {
-            public string user { get; set; }
-            public string body { get; set; }
-        }
+        // public class AnswerModel
+        // {
+        //     public string user { get; set; }
+        //     public string body { get; set; }
+        // }
 
         // GET api/answers
         [HttpGet]
@@ -41,14 +41,15 @@ namespace suncoast_overflow.Controllers
 
         // POST api/answers/{id}
         [HttpPost("{id}")]
-        public ActionResult<Answers> Post(int id, [FromBody] AnswerModel data)
+        public Answers Post(int id, [FromBody] Answers answer)
         {
-            var answer = new Answers
-            {
-                User = data.user.ToLower(),
-                BodyOfAnswer = data.body.ToLower(),
-                QuestionsId = id
-            };
+            // var answer = new Answers
+            // {
+            //     User = data.user.ToLower(),
+            //     BodyOfAnswer = data.body.ToLower(),
+            //     QuestionsId = id
+            // };
+            answer.QuestionsId = id;
             this.db.Answers.Add(answer);
             this.db.SaveChanges();
             return answer;
