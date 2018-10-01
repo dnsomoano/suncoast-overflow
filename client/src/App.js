@@ -6,6 +6,7 @@ import QuestionDetail from "./Components/QuestionDetail";
 import AskQuestion from "./Components/AskQuestion";
 import InterestingQuestions from "./Components/InterestingQuestions";
 import HotQuestions from "./Components/HotQuestions";
+// TODO add SearchQuestion component
 
 class App extends Component {
   render() {

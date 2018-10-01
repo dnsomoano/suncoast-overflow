@@ -11,6 +11,8 @@ class QuestionDetail extends Component {
       body: "",
       upVote: 0,
       downVote: 0,
+      upVoteAns: 0,
+      downVoteAns: 0,
       answers: []
     };
   }
@@ -40,39 +42,155 @@ class QuestionDetail extends Component {
       });
   };
 
+  // PATCH up vote to question to QuestionsTable
+  handleUpVoteQuestion = id => {
+    const PATCH_UP_URL = `https://localhost:5001/api/questions/up/${id}`;
+    fetch(PATCH_UP_URL, {
+      // mode: "no-cors",
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        upVoteQuestion: this.state.upVote
+      })
+    })
+      .then(resp => resp.json())
+      .then(_ => {
+        this.getQuestions();
+      });
+  };
+
+  // PATCH down vote to question to QuestionsTable
+  handleDownVoteQuestion = id => {
+    const PATCH_DOWN_URL = `https://localhost:5001/api/questions/down/${id}`;
+    fetch(PATCH_DOWN_URL, {
+      // mode: "no-cors",
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        upVoteQuestion: this.state.downVote
+      })
+    })
+      .then(resp => resp.json())
+      .then(_ => {
+        this.getQuestions();
+      });
+  };
+
+  // PATCH up vote to answer to AnswersTable
+  handleUpVoteAnswer = id => {
+    const PATCH_UP_URL = `https://localhost:5001/api/answers/up/${id}`;
+    fetch(PATCH_UP_URL, {
+      // mode: "no-cors",
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        UpVoteAnswer: this.state.upVoteAns
+      })
+    })
+      .then(resp => resp.json())
+      .then(_ => {
+        this.getQuestions();
+      });
+  };
+
+  // PATCH down vote to answer to AnswersTable
+  handleDownVoteAnswer = id => {
+    const PATCH_UP_URL = `https://localhost:5001/api/answers/down/${id}`;
+    fetch(PATCH_UP_URL, {
+      // mode: "no-cors",
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        downVoteAnswer: this.state.downVoteAns
+      })
+    })
+      .then(resp => resp.json())
+      .then(_ => {
+        this.getQuestions();
+      });
+  };
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // TODO write function for "Post Your Answer" button
+
   render() {
     return (
       <div>
-        <section className="question-box">
-          <header className="question-header">{this.state.title}</header>
-          <section className="detail-pane">
-            <section className="vote-count">
-              {this.state.upVote}
-              {this.state.downVote}
-            </section>
-            <section className="details-body">
-              {this.state.body}
-              <section className="user-details">{this.state.user}</section>
+        <section className="page-body">
+          <section className="details-container">
+            <header className="question-header">{this.state.title}</header>
+            <section className="detail-pane">
+              <button
+                className="vote-count"
+                name="upVote"
+                onClick={() => {
+                  this.handleUpVoteQuestion(this.state.id);
+                }}
+              >
+                {this.state.upVote}
+              </button>
+              <button
+                className="vote-count"
+                name="downVote"
+                onClick={() => {
+                  this.handleDownVoteQuestion(this.state.id);
+                }}
+              >
+                {this.state.downVote}
+              </button>
+              <section className="details-body">
+                {this.state.body}
+                <section className="user-details">{this.state.user}</section>
+              </section>
             </section>
           </section>
+          {this.state.answers.map((answer, i) => {
+            return (
+              <section className="details-container">
+                <section key={i} className="detail-pane">
+                  <section className="vote-count">
+                    <button
+                      className="vote-count"
+                      name="upVoteAns"
+                      onClick={() => {
+                        this.handleUpVoteAnswer(answer.id);
+                      }}
+                    >
+                      {answer.UpVoteAnswer}
+                    </button>
+                    <button
+                      className="vote-count"
+                      name="downVoteAns"
+                      onClick={() => {
+                        this.handleDownVoteAnswer(answer.id);
+                      }}
+                    >
+                      {answer.downVoteAnswer}
+                    </button>
+                  </section>
+                  <section className="details-body">
+                    {answer.bodyOfAnswer}
+                    <header className="user-details">
+                      {answer.user}
+                      {answer.dateOfAnswer}
+                    </header>
+                  </section>
+                </section>
+              </section>
+            );
+          })}
+          <section>
+            <form>
+              <textarea name="body" onChange={this.handleChange} />
+              <button>Post Your Answer</button>
+            </form>
+          </section>
         </section>
-        {this.state.answers.map((answer, i) => {
-          return (
-            <section key={i} className="detail-pane">
-              <section className="vote-count">
-                <header>{answer.UpVoteAnswer}</header>
-                <header>{answer.downVoteAnswer}</header>
-              </section>
-              <section className="details-body">
-                {answer.bodyOfAnswer}
-                <header className="user-details">
-                  {answer.user}
-                  {answer.dateOfAnswer}
-                </header>
-              </section>
-            </section>
-          );
-        })}
       </div>
     );
   }

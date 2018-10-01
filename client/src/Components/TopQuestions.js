@@ -26,17 +26,32 @@ class TopQuestions extends Component {
       });
   };
 
-  // TODO add string interpolation for id to perform patch request
-  // PATCH question to QuestionsTable
-  handleSubmitQuestion = e => {
-    e.preventDefault();
-    fetch("https://localhost:5001/api/questions", {
+  // PATCH up vote to question to QuestionsTable
+  handleUpVoteQuestion = id => {
+    const PATCH_UP_URL = `https://localhost:5001/api/questions/up/${id}`;
+    fetch(PATCH_UP_URL, {
       // mode: "no-cors",
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        upVoteQuestion: this.state.upVote,
-        DownVoteQuestion: this.state.downVote
+        upVoteQuestion: this.state.upVote
+      })
+    })
+      .then(resp => resp.json())
+      .then(_ => {
+        this.getQuestions();
+      });
+  };
+
+  // PATCH down vote to question to QuestionsTable
+  handleDownVoteQuestion = id => {
+    const PATCH_DOWN_URL = `https://localhost:5001/api/questions/down/${id}`;
+    fetch(PATCH_DOWN_URL, {
+      // mode: "no-cors",
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        upVoteQuestion: this.state.downVote
       })
     })
       .then(resp => resp.json())
@@ -60,8 +75,22 @@ class TopQuestions extends Component {
               <section key={i} className="top-questions">
                 <section className="vote-buttons">
                   {/* TODO add event handlers to up vote/down vote buttons */}
-                  <button name="upVote">{question.upVoteQuestion}</button>
-                  <button name="downVote">{question.downVoteQuestion}</button>
+                  <button
+                    name="upVote"
+                    onClick={() => {
+                      this.handleUpVoteQuestion(question.id);
+                    }}
+                  >
+                    {question.upVoteQuestion}
+                  </button>
+                  <button
+                    name="downVote"
+                    onClick={() => {
+                      this.handleDownVoteQuestion(question.id);
+                    }}
+                  >
+                    {question.downVoteQuestion}
+                  </button>
                 </section>
                 <Link
                   to={`/questions/${question.id}/${question.titleOfQuestion}`}
