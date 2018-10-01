@@ -27,24 +27,24 @@ class App extends Component {
           <section/>
             <ul class="Questions-nav-bar-ul">
               <li>
-                <Link to="/">
-                  <button type="button">Home</button>
+                <Link to="/topquestions">
+                  <button type="button">Top</button>
                 </Link>
               </li>
               <li>
-                <Link to="/InterestingQuestions">
+                <Link to="/interestingquestions">
                 <button type="button">Interesting</button>
                 </Link>
               </li>
               <li>
-                <Link to="/HotQuestions">
+                <Link to="/hotquestions">
                 <button type="button">Hot</button>
                 </Link>
               </li>
             </ul>
           </section>
           <Switch>
-            <Route path="/" exact component={TopQuestions} />
+            <Route path="/topquestions" exact component={TopQuestions} />
             <Route
               path="/InterestingQuestions"
               exact

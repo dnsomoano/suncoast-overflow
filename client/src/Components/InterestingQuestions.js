@@ -28,14 +28,13 @@ class InterestingQuestions extends Component {
   
     render() {
       return (
-        <section>
-          <div></div>
-          {/* <section>
+        <div>
+          <section>
             {this.state.data.map((questions, i) => {
               return <section key={i}>{questions}</section>;
             })}
-          </section> */}
-        </section>
+          </section>
+        </div>
       );
     }
   }

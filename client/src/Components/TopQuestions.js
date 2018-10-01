@@ -56,14 +56,13 @@ class TopQuestions extends Component {
 
   render() {
     return (
-      <section>
-        <div><
-        {/* <section>
-          {this.state.data.map((questions, i) => {
-            return <section key={i}>{questions}</section>;
-          })}
-      </section>
-      </section>
+      <div>
+          <section>
+            {this.state.data.map((questions, i) => {
+              return <section key={i}>{questions}</section>;
+            })}
+          </section>
+      </div>
     );
   }
 }
