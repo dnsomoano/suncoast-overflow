@@ -22,7 +22,7 @@ class App extends Component {
           <h2>Top Questions</h2>
           <button>Ask Question</button>
           <section/>
-            <ul class="Questions-nav-bar-ul">
+            <ul className="Questions-nav-bar-ul">
               <li>
                 <Link to="/topquestions">
                   <button type="button">Top</button>

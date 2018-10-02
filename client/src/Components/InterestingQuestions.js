@@ -31,7 +31,7 @@ class InterestingQuestions extends Component {
         <div>
           <section>
             {this.state.data.map((questions, i) => {
-              return <section key={i}>{questions}</section>;
+              return <section key={i}>{questions.title}</section>;
             })}
           </section>
         </div>
