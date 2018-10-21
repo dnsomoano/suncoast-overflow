@@ -91,14 +91,16 @@ class InterestingQuestions extends Component {
                     {question.downVoteQuestion}
                   </button>
                 </section>
-                <Link
-                  to={`/questions/${question.id}/${question.titleOfQuestion}`}
-                >
-                  <header>{question.titleOfQuestion}</header>
-                </Link>
-                <section className="date-and-user">
-                  <header>Asked {question.dateOfQuestion}</header>
-                  <header>by {question.user}</header>
+                <section className="question-container">
+                  <Link
+                    to={`/questions/${question.id}/${question.titleOfQuestion}`}
+                  >
+                    <header>{question.titleOfQuestion}</header>
+                  </Link>
+                  <section className="date-and-user">
+                    <header>Asked {question.dateOfQuestion}</header>
+                    <header>by {question.user}</header>
+                  </section>
                 </section>
               </section>
             );

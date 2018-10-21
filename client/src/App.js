@@ -7,19 +7,57 @@ import AskQuestion from "./Components/AskQuestion";
 import HotQuestions from "./Components/HotQuestions";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      q: "",
+      searchResults: []
+    };
+  }
+
+  // handle event for search bar
+  handleSearch = e => {
+    e.preventDefault();
+    fetch("https://localhost:5001/api/search?q=" + this.state.q)
+      .then(resp => resp.json())
+      .then(results => {
+        console.log(results);
+        this.setState({
+          searchResults: results
+        });
+      });
+  };
+
+  // handle event for search input
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
   render() {
     return (
       <Router>
         <div>
           <section className="App">
-            <section className="App-header">
+            <section className="search-bar">
               <img
                 src="./images/stack-overflow.png"
                 className="App-logo"
                 alt="logo"
               />
-              <input type="text" placeholder="Search" />
-              <button>Submit</button>
+              <section className="search-container">
+                <form onSubmit={this.handleSearch}>
+                  <input
+                    className="search-input"
+                    name="q"
+                    type="Search"
+                    placeholder=" Search..."
+                    onChange={this.handleChange}
+                  />
+                  <button className="submit-button">Submit</button>
+                </form>
+              </section>
             </section>
           </section>
           <section className="body">
