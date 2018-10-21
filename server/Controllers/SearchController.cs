@@ -18,34 +18,15 @@ namespace suncoast_overflow.Controllers
             this.db = new SuncoastOverflowContext();
         }
 
-        public class ResponseObject
-        {
-            public bool WasSuccessful { get; set; }
-            public Object result { get; set; }
-        }
-
         // GET api/search?q={title}
         [HttpGet]
-        public ActionResult<ResponseObject> Get([FromQuery] string q)
+        public IEnumerable<Questions> Get([FromQuery] string q)
         {
-            var _rv = new ResponseObject
-            {
-                WasSuccessful = true,
-                result = this.db
+            var questionResults = this.db
                 .Questions
-                .Where(f => f.TitleOfQuestion.Contains(q) || f.BodyOfQuestion.Contains(q))
-                .OrderBy(o => o.TitleOfQuestion),
-            };
-            if (q != null)
-            {
-                return _rv;
-            }
-            else
-            {
-                _rv.WasSuccessful = false;
-                _rv.result = "Question not found";
-                return _rv;
-            }
-        }
+                .Where(f => f.TitleOfQuestion.Contains(q) || f.BodyOfQuestion.Contains(q) || f.User.Contains(q))
+                .OrderByDescending(o => o.UpVoteQuestion);
+            return questionResults;
+        }// END
     }
 }

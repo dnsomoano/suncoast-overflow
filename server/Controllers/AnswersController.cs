@@ -18,12 +18,6 @@ namespace suncoast_overflow.Controllers
             this.db = new SuncoastOverflowContext();
         }
 
-        // public class AnswerModel
-        // {
-        //     public string user { get; set; }
-        //     public string body { get; set; }
-        // }
-
         // GET api/answers
         [HttpGet]
         public ActionResult<IEnumerable<Answers>> Get()
@@ -37,49 +31,38 @@ namespace suncoast_overflow.Controllers
         public ActionResult<Answers> Get(int id)
         {
             return this.db.Answers.FirstOrDefault(f => f.Id == id);
-        }
+        }// END
 
         // POST api/answers/{id}
         [HttpPost("{id}")]
         public Answers Post(int id, [FromBody] Answers answer)
         {
-            // var answer = new Answers
-            // {
-            //     User = data.user.ToLower(),
-            //     BodyOfAnswer = data.body.ToLower(),
-            //     QuestionsId = id
-            // };
             answer.QuestionsId = id;
             this.db.Answers.Add(answer);
             this.db.SaveChanges();
             return answer;
-        }
+        }// END
 
         // MUST use answers.Id NOT questionsId!
-        // PATCH api/answers/up/{id}/
-        [HttpPatch("up/{id}")]
-        public Answers UpVote(int id)
+        // PATCH api/answers/{vote}/{id}/
+        [HttpPatch("{vote}/{id}")]
+        public Answers UpVote(string vote, int id)
         {
             // Declare a reference to for db answers to find id
             var answer = this.db.Answers.FirstOrDefault(f => f.Id == id);
-            // Add 1 to upVote
-            answer.UpVoteAnswer++;
+            if (vote == "up")
+            {
+                // Add 1 to upVote
+                answer.UpVoteAnswer++;
+            }
+            else
+            {
+                // Add 1 to downVote
+                answer.DownVoteAnswer++;
+            }
             this.db.SaveChanges();
             return answer;
-        }
-
-        // MUST use answers.Id NOT questionsId!
-        // PATCH api/answers/down/{id}
-        [HttpPatch("down/{id}")]
-        public Answers DownVote(int id)
-        {
-            // Declare a reference to for db answers to find id
-            var answer = this.db.Answers.FirstOrDefault(f => f.Id == id);
-            // Add 1 to upVote
-            answer.DownVoteAnswer++;
-            this.db.SaveChanges();
-            return answer;
-        }
+        }// END
 
         // DELETE api/answers/{id}
         [HttpDelete("{id}")]
@@ -89,6 +72,6 @@ namespace suncoast_overflow.Controllers
             this.db.Answers.Remove(answer);
             this.db.SaveChanges();
             return answer;
-        }
+        }// END
     }
 }
