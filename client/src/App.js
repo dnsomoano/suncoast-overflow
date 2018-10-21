@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import TopQuestions from "./Components/TopQuestions";
-import QuestionDetail from "./Components/QuestionDetail";
-import AskQuestion from "./Components/AskQuestion";
 import InterestingQuestions from "./Components/InterestingQuestions";
+import TopQuestions from "./Components/TopQuestions";
 import HotQuestions from "./Components/HotQuestions";
-// TODO work  on this v
-import TopNav from "./Components/TopNav";
-import SearchQuestion from "./Components/SearchQuestion";
 
 class App extends Component {
   render() {
@@ -16,32 +11,40 @@ class App extends Component {
       <Router>
         <div>
           <section className="App">
-            <TopNav />
+            <section className="App-header">
+              <img
+                src="./images/stack-overflow.png"
+                className="App-logo"
+                alt="logo"
+              />
+              <input type="text" placeholder="Search" />
+              <button>Submit</button>
+            </section>
           </section>
           <section className="Nav-bar">
-          <h2>Top Questions</h2>
-          <button>Ask Question</button>
-          <section/>
+            <h2>Top Questions</h2>
+            <button>Ask Question</button>
+            <section />
             <ul className="Questions-nav-bar-ul">
               <li>
-                <Link to="/topquestions">
-                  <button type="button">Top</button>
+                <Link to="/">
+                  <button type="button">Home</button>
                 </Link>
               </li>
               <li>
-                <Link to="/interestingquestions">
-                <button type="button">Interesting</button>
+                <Link to="/InterestingQuestions">
+                  <button type="button">Interesting</button>
                 </Link>
               </li>
               <li>
-                <Link to="/hotquestions">
-                <button type="button">Hot</button>
+                <Link to="/HotQuestions">
+                  <button type="button">Hot</button>
                 </Link>
               </li>
             </ul>
           </section>
           <Switch>
-            <Route path="/topquestions" exact component={TopQuestions} />
+            <Route path="/" exact component={TopQuestions} />
             <Route
               path="/InterestingQuestions"
               exact

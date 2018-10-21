@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { Link } from "react-router-dom";
 
 class HotQuestions extends Component {
   constructor(props) {
@@ -28,13 +29,14 @@ class HotQuestions extends Component {
 
   render() {
     return (
-      <div>
-          <section>
+      <section>
+        <div />
+        {/* <section>
             {this.state.data.map((questions, i) => {
               return <section key={i}>{questions}</section>;
             })}
-          </section>
-      </div>
+          </section> */}
+      </section>
     );
   }
 }

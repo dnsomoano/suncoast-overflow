@@ -68,13 +68,44 @@ class TopQuestions extends Component {
 
   render() {
     return (
-      <div>
-          <section>
-            {this.state.data.map((questions, i) => {
-              return <section key={i}>{questions}</section>;
-            })}
-          </section>
-      </div>
+      <section>
+        <section>
+          {this.state.data.map((question, i) => {
+            return (
+              <section key={i} className="top-questions">
+                <section className="vote-buttons">
+                  {/* TODO add event handlers to up vote/down vote buttons */}
+                  <button
+                    name="upVote"
+                    onClick={() => {
+                      this.handleUpVoteQuestion(question.id);
+                    }}
+                  >
+                    {question.upVoteQuestion}
+                  </button>
+                  <button
+                    name="downVote"
+                    onClick={() => {
+                      this.handleDownVoteQuestion(question.id);
+                    }}
+                  >
+                    {question.downVoteQuestion}
+                  </button>
+                </section>
+                <Link
+                  to={`/questions/${question.id}/${question.titleOfQuestion}`}
+                >
+                  <header>{question.titleOfQuestion}</header>
+                </Link>
+                <section className="date-and-user">
+                  <header>Asked {question.dateOfQuestion}</header>
+                  <header>by {question.user}</header>
+                </section>
+              </section>
+            );
+          })}
+        </section>
+      </section>
     );
   }
 }
