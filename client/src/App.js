@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="body">
+        <div>
           <section className="App">
             <section className="App-header">
               <img
@@ -22,42 +22,60 @@ class App extends Component {
               <button>Submit</button>
             </section>
           </section>
-          <section className="main-header-container">
-            <section className="header-container">
-              <h1>Top Questions</h1>
-              <Link to="/questions/ask">
-                <button className="ask-question">Ask Question</button>
-              </Link>
+          <section className="body">
+            <section className="left-sidebar">
+              <nav>
+                <header>Home</header>
+                <ul>
+                  <header>Public</header>
+                  <li>Stack Overflow</li>
+                  <li>Tags</li>
+                  <li>Users</li>
+                  <li>Jobs</li>
+                </ul>
+              </nav>
             </section>
-            <section className="Nav-bar">
-              <ul className="questions-breadcrumbs">
-                <li>
-                  <Link to="/">
-                    <button type="button">Interesting</button>
+            <section className="content">
+              <section className="mainbar">
+                <section className="header-container">
+                  <h1>Top Questions</h1>
+                  <Link to="/questions/ask">
+                    <button className="ask-question">Ask Question</button>
                   </Link>
-                </li>
-                <li>
-                  <button type="button">Featured</button>
-                </li>
-                <li>
-                  <Link to="/HotQuestions">
-                    <button type="button">Hot</button>
-                  </Link>
-                </li>
-              </ul>
+                </section>
+                <section className="Nav-bar">
+                  <ul className="questions-breadcrumbs">
+                    <li>
+                      <Link to="/">
+                        <button type="button">Interesting</button>
+                      </Link>
+                    </li>
+                    <li>
+                      <button type="button">Featured</button>
+                    </li>
+                    <li>
+                      <Link to="/HotQuestions">
+                        <button type="button">Hot</button>
+                      </Link>
+                    </li>
+                  </ul>
+                </section>
+                <Switch>
+                  <Route path="/" exact component={InterestingQuestions} />
+                  <Route
+                    path="/questions/:id/:title"
+                    exact
+                    component={QuestionDetail}
+                  />
+                  <Route path="/questions/ask" exact component={AskQuestion} />
+                  <Route path="/HotQuestions" exact component={HotQuestions} />
+                </Switch>
+              </section>
+              <section className="right-sidebar">
+                <header>Hot Network Questions</header>
+              </section>
             </section>
           </section>
-          <Switch>
-            <Route path="/" exact component={InterestingQuestions} />
-            <Route
-              path="/questions/:id/:title"
-              exact
-              component={QuestionDetail}
-            />
-            <Route path="/questions/ask" exact component={AskQuestion} />
-            <Route path="/HotQuestions" exact component={HotQuestions} />
-          </Switch>
-          <section className="App" />
         </div>
       </Router>
     );
