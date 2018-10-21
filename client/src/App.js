@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import SearchResults from "./Components/SearchResults";
 import InterestingQuestions from "./Components/InterestingQuestions";
 import QuestionDetail from "./Components/QuestionDetail";
 import AskQuestion from "./Components/AskQuestion";
@@ -10,15 +11,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      q: "",
-      searchResults: []
+      searchTerm: ""
     };
   }
 
   // handle event for search bar
   handleSearch = e => {
     e.preventDefault();
-    fetch("https://localhost:5001/api/search?q=" + this.state.q)
+    fetch("https://localhost:5001/api/search?q=" + this.state.searchTerm)
       .then(resp => resp.json())
       .then(results => {
         console.log(results);
@@ -47,16 +47,19 @@ class App extends Component {
                 alt="logo"
               />
               <section className="search-container">
+                {/* TODO fix search results displaying */}
+                {/* <Link to={`/search?q=${this.state.searchTerm}`}> */}
                 <form onSubmit={this.handleSearch}>
                   <input
                     className="search-input"
-                    name="q"
+                    name="searchTerm"
                     type="Search"
                     placeholder=" Search..."
                     onChange={this.handleChange}
                   />
                   <button className="submit-button">Submit</button>
                 </form>
+                {/* </Link> */}
               </section>
             </section>
           </section>
@@ -100,6 +103,11 @@ class App extends Component {
                 </section>
                 <Switch>
                   <Route path="/" exact component={InterestingQuestions} />
+                  <Route
+                    path="/search?q=:searchTerm"
+                    exact
+                    component={SearchResults}
+                  />
                   <Route
                     path="/questions/:id/:title"
                     exact
