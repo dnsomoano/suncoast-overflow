@@ -35,4 +35,4 @@ The core functionality is:
 
 ### Adventure Mode
 
-- [ ] Work on your capstone project
+- [x] Work on your capstone project
