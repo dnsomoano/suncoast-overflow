@@ -43,8 +43,8 @@ namespace suncoast_overflow.Migrations
                     b.ToTable("Answers");
 
                     b.HasData(
-                        new { Id = 3, BodyOfAnswer = "A perimeter actually ends..", DateOfAnswer = new DateTime(2018, 10, 22, 11, 53, 8, 789, DateTimeKind.Local), DownVoteAnswer = 1, QuestionsId = 1, UpVoteAnswer = 0, User = "jabberjaw" },
-                        new { Id = 4, BodyOfAnswer = "A perimeter is declared within the function, while an argument is within the function call.", DateOfAnswer = new DateTime(2018, 10, 22, 11, 53, 8, 789, DateTimeKind.Local), DownVoteAnswer = 0, QuestionsId = 1, UpVoteAnswer = 3, User = "FTW" }
+                        new { Id = 3, BodyOfAnswer = "A perimeter actually ends..", DateOfAnswer = new DateTime(2018, 10, 22, 13, 57, 47, 800, DateTimeKind.Local), DownVoteAnswer = 1, QuestionsId = 1, UpVoteAnswer = 0, User = "jabberjaw" },
+                        new { Id = 4, BodyOfAnswer = "A perimeter is declared within the function, while an argument is within the function call.", DateOfAnswer = new DateTime(2018, 10, 22, 13, 57, 47, 800, DateTimeKind.Local), DownVoteAnswer = 0, QuestionsId = 1, UpVoteAnswer = 3, User = "FTW" }
                     );
                 });
 
@@ -70,8 +70,8 @@ namespace suncoast_overflow.Migrations
                     b.ToTable("Questions");
 
                     b.HasData(
-                        new { Id = 1, BodyOfQuestion = "what is the difference between an argument and perimeter? Both seem to be the same", DateOfQuestion = new DateTime(2018, 10, 22, 11, 53, 8, 787, DateTimeKind.Local), DownVoteQuestion = 0, TitleOfQuestion = "difference between an argument and perimeter?", UpVoteQuestion = 1, User = "jackie-jaw" },
-                        new { Id = 2, BodyOfQuestion = "what is the difference between a static method and an instance method? Both seem to be the same", DateOfQuestion = new DateTime(2018, 10, 22, 11, 53, 8, 788, DateTimeKind.Local), DownVoteQuestion = 0, TitleOfQuestion = "difference between a static method and an instance method?", UpVoteQuestion = 1, User = "jackie-job" }
+                        new { Id = 1, BodyOfQuestion = "what is the difference between an argument and perimeter? Both seem to be the same", DateOfQuestion = new DateTime(2018, 10, 22, 13, 57, 47, 800, DateTimeKind.Local), DownVoteQuestion = 0, TitleOfQuestion = "difference between an argument and perimeter?", UpVoteQuestion = 1, User = "jackie-jaw" },
+                        new { Id = 2, BodyOfQuestion = "what is the difference between a static method and an instance method? Both seem to be the same", DateOfQuestion = new DateTime(2018, 10, 22, 13, 57, 47, 800, DateTimeKind.Local), DownVoteQuestion = 0, TitleOfQuestion = "difference between a static method and an instance method?", UpVoteQuestion = 1, User = "jackie-job" }
                     );
                 });
 
