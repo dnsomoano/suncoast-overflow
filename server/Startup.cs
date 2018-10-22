@@ -19,6 +19,7 @@ namespace suncoast_overflow
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            new SuncoastOverflowContext().Database.Migrate();
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +27,12 @@ namespace suncoast_overflow
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var conn = Environment.GetEnvironmentVariable("CONNECTION_STRING") ?? "server=localhost;username=postgres;password=k2#tgl38r9;database=SuncoastOverflow";
+            services
+                        .AddEntityFrameworkNpgsql()
+                        .AddDbContext<SuncoastOverflowContext>(opt =>
+                            opt.UseNpgsql(conn));
+
             services.AddCors();
 
             services.AddMvc()
@@ -34,11 +41,6 @@ namespace suncoast_overflow
                     options => options.SerializerSettings.ReferenceLoopHandling =
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
-
-            services
-                .AddEntityFrameworkNpgsql()
-                .AddDbContext<SuncoastOverflowContext>(opt =>
-                    opt.UseNpgsql("server=localhost;username=postgres;password=k2#tgl38r9;database=SuncoastOverflow"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

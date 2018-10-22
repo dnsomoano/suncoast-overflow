@@ -21,8 +21,8 @@ namespace suncoast_overflow
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("server=localhost;username=postgres;password=k2#tgl38r9;database=SuncoastOverflow");
+                var conn = Environment.GetEnvironmentVariable("CONNECTION_STRING") ?? "server=localhost;username=postgres;password=k2#tgl38r9;database=SuncoastOverflow";
+                optionsBuilder.UseNpgsql(conn);
             }
         }
 
