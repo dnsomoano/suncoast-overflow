@@ -15,18 +15,18 @@ class App extends Component {
     };
   }
 
-  // handle event for search bar
-  handleSearch = e => {
-    e.preventDefault();
-    fetch("https://localhost:5001/api/search?q=" + this.state.searchTerm)
-      .then(resp => resp.json())
-      .then(results => {
-        console.log(results);
-        this.setState({
-          searchResults: results
-        });
-      });
-  };
+  // // handle event for search bar
+  // handleSearch = e => {
+  //   e.preventDefault();
+  //   //   fetch("https://localhost:5001/api/search?q=" + this.state.searchTerm)
+  //   //     .then(resp => resp.json())
+  //   //     .then(results => {
+  //   //       console.log(results);
+  //   //       this.setState({
+  //   //         searchResults: results
+  //   //       });
+  //   //     });
+  // };
 
   // handle event for search input
   handleChange = e => {
@@ -48,18 +48,18 @@ class App extends Component {
               />
               <section className="search-container">
                 {/* TODO fix search results displaying */}
-                {/* <Link to={`/search?q=${this.state.searchTerm}`}> */}
-                <form onSubmit={this.handleSearch}>
-                  <input
-                    className="search-input"
-                    name="searchTerm"
-                    type="Search"
-                    placeholder=" Search..."
-                    onChange={this.handleChange}
-                  />
+                {/* <form onSubmit={this.handleSearch}> */}
+                <input
+                  className="search-input"
+                  name="searchTerm"
+                  type="Search"
+                  placeholder=" Search..."
+                  onChange={this.handleChange}
+                />
+                <Link to={`/search/${this.state.searchTerm}`}>
                   <button className="submit-button">Submit</button>
-                </form>
-                {/* </Link> */}
+                  {/* </form> */}
+                </Link>
               </section>
             </section>
           </section>
@@ -104,8 +104,14 @@ class App extends Component {
                 <Switch>
                   <Route path="/" exact component={InterestingQuestions} />
                   <Route
-                    path="/search?q=:searchTerm"
+                    path="/search/:searchTerm"
                     exact
+                    // render={props => (
+                    //   <SearchResults
+                    //     {...props}
+                    //     searchTerm={this.state.searchTerm}
+                    //   />
+                    // )}
                     component={SearchResults}
                   />
                   <Route

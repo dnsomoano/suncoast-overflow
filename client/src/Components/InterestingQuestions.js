@@ -29,6 +29,9 @@ class InterestingQuestions extends Component {
   // TODO refactor into one function that takes another perimeter
   // PATCH up vote to question to QuestionsTable
   handleUpVoteQuestion = id => {
+    // if () {
+
+    // }
     const PATCH_UP_URL = `https://localhost:5001/api/questions/up/${id}`;
     fetch(PATCH_UP_URL, {
       method: "PATCH",
