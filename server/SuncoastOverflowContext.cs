@@ -33,8 +33,8 @@ namespace suncoast_overflow
                 {
                     Id = 1,
                     User = "jackie-jaw",
-                    TitleOfQuestion = "difference between an argument and perimeter?",
-                    BodyOfQuestion = "what is the difference between an argument and perimeter? Both seem to be the same",
+                    TitleOfQuestion = "difference between an argument and parameter?",
+                    BodyOfQuestion = "what is the difference between an argument and parameter? Both seem to be the same",
                     UpVoteQuestion = 1,
                     DownVoteQuestion = 0
 
@@ -56,7 +56,7 @@ namespace suncoast_overflow
                 {
                     Id = 3,
                     User = "jabberjaw",
-                    BodyOfAnswer = "A perimeter actually ends..",
+                    BodyOfAnswer = "A parameter actually ends..",
                     UpVoteAnswer = 0,
                     DownVoteAnswer = 1,
                     QuestionsId = 1,
@@ -66,7 +66,7 @@ namespace suncoast_overflow
                 {
                     Id = 4,
                     User = "FTW",
-                    BodyOfAnswer = "A perimeter is declared within the function, while an argument is within the function call.",
+                    BodyOfAnswer = "A parameter is declared within the function, while an argument is within the function call.",
                     UpVoteAnswer = 3,
                     DownVoteAnswer = 0,
                     QuestionsId = 1,

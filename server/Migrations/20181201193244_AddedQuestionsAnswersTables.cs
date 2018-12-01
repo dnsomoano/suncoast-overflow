@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace suncoast_overflow.Migrations
 {
-    public partial class AddedDataToTables : Migration
+    public partial class AddedQuestionsAnswersTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,22 +53,22 @@ namespace suncoast_overflow.Migrations
             migrationBuilder.InsertData(
                 table: "Questions",
                 columns: new[] { "Id", "BodyOfQuestion", "DateOfQuestion", "DownVoteQuestion", "TitleOfQuestion", "UpVoteQuestion", "User" },
-                values: new object[] { 1, "what is the difference between an argument and perimeter? Both seem to be the same", new DateTime(2018, 10, 22, 13, 57, 47, 800, DateTimeKind.Local), 0, "difference between an argument and perimeter?", 1, "jackie-jaw" });
+                values: new object[] { 1, "what is the difference between an argument and parameter? Both seem to be the same", new DateTime(2018, 12, 1, 14, 32, 44, 744, DateTimeKind.Local), 0, "difference between an argument and parameter?", 1, "jackie-jaw" });
 
             migrationBuilder.InsertData(
                 table: "Questions",
                 columns: new[] { "Id", "BodyOfQuestion", "DateOfQuestion", "DownVoteQuestion", "TitleOfQuestion", "UpVoteQuestion", "User" },
-                values: new object[] { 2, "what is the difference between a static method and an instance method? Both seem to be the same", new DateTime(2018, 10, 22, 13, 57, 47, 800, DateTimeKind.Local), 0, "difference between a static method and an instance method?", 1, "jackie-job" });
+                values: new object[] { 2, "what is the difference between a static method and an instance method? Both seem to be the same", new DateTime(2018, 12, 1, 14, 32, 44, 744, DateTimeKind.Local), 0, "difference between a static method and an instance method?", 1, "jackie-job" });
 
             migrationBuilder.InsertData(
                 table: "Answers",
                 columns: new[] { "Id", "BodyOfAnswer", "DateOfAnswer", "DownVoteAnswer", "QuestionsId", "UpVoteAnswer", "User" },
-                values: new object[] { 3, "A perimeter actually ends..", new DateTime(2018, 10, 22, 13, 57, 47, 800, DateTimeKind.Local), 1, 1, 0, "jabberjaw" });
+                values: new object[] { 3, "A parameter actually ends..", new DateTime(2018, 12, 1, 14, 32, 44, 744, DateTimeKind.Local), 1, 1, 0, "jabberjaw" });
 
             migrationBuilder.InsertData(
                 table: "Answers",
                 columns: new[] { "Id", "BodyOfAnswer", "DateOfAnswer", "DownVoteAnswer", "QuestionsId", "UpVoteAnswer", "User" },
-                values: new object[] { 4, "A perimeter is declared within the function, while an argument is within the function call.", new DateTime(2018, 10, 22, 13, 57, 47, 800, DateTimeKind.Local), 0, 1, 3, "FTW" });
+                values: new object[] { 4, "A parameter is declared within the function, while an argument is within the function call.", new DateTime(2018, 12, 1, 14, 32, 44, 744, DateTimeKind.Local), 0, 1, 3, "FTW" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_QuestionsId",
